@@ -487,7 +487,7 @@ ble_gattc_dbg_assert_proc_not_inserted(struct ble_gattc_proc *proc)
 static void
 ble_gattc_log_proc_init(const char *name)
 {
-    BLE_HS_LOG(INFO, "GATT procedure initiated: %s", name);
+    //BLE_HS_LOG(INFO, "GATT procedure initiated: %s", name);
 }
 
 static void
@@ -550,7 +550,7 @@ static void
 ble_gattc_log_read(uint16_t att_handle)
 {
     ble_gattc_log_proc_init("read; ");
-    BLE_HS_LOG(INFO, "att_handle=%d\n", att_handle);
+    //BLE_HS_LOG(INFO, "att_handle=%d\n", att_handle);
 }
 
 static void
@@ -568,7 +568,7 @@ static void
 ble_gattc_log_read_long(struct ble_gattc_proc *proc)
 {
     ble_gattc_log_proc_init("read long; ");
-    BLE_HS_LOG(INFO, "att_handle=%d\n", proc->read_long.handle);
+    //BLE_HS_LOG(INFO, "att_handle=%d\n", proc->read_long.handle);
 }
 
 static void
@@ -577,7 +577,7 @@ ble_gattc_log_read_mult(const uint16_t *handles, uint8_t num_handles)
     int i;
 
     ble_gattc_log_proc_init("read multiple; ");
-    BLE_HS_LOG(INFO, "att_handles=");
+    //BLE_HS_LOG(INFO, "att_handles=");
     for (i = 0; i < num_handles; i++) {
         BLE_HS_LOG(INFO, "%s%d", i != 0 ? "," : "", handles[i]);
     }
@@ -596,16 +596,16 @@ ble_gattc_log_write(uint16_t att_handle, uint16_t len, int expecting_rsp)
     }
 
     ble_gattc_log_proc_init(name);
-    BLE_HS_LOG(INFO, "att_handle=%d len=%d\n", att_handle, len);
+    //BLE_HS_LOG(INFO, "att_handle=%d len=%d\n", att_handle, len);
 }
 
 static void
 ble_gattc_log_write_long(struct ble_gattc_proc *proc)
 {
     ble_gattc_log_proc_init("write long; ");
-    BLE_HS_LOG(INFO, "att_handle=%d len=%d\n",
-               proc->write_long.attr.handle,
-               OS_MBUF_PKTLEN(proc->write_long.attr.om));
+    //BLE_HS_LOG(INFO, "att_handle=%d len=%d\n",
+    //           proc->write_long.attr.handle,
+    //           OS_MBUF_PKTLEN(proc->write_long.attr.om));
 }
 
 static void
@@ -614,7 +614,7 @@ ble_gattc_log_write_reliable(struct ble_gattc_proc *proc)
     int i;
 
     ble_gattc_log_proc_init("write reliable; ");
-    BLE_HS_LOG(INFO, "att_handles=");
+    //BLE_HS_LOG(INFO, "att_handles=");
     for (i = 0; i < proc->write_reliable.num_attrs; i++) {
         BLE_HS_LOG(INFO, "%s%d", i != 0 ? "," : "",
                    proc->write_reliable.attrs[i].handle);
@@ -626,14 +626,14 @@ static void
 ble_gattc_log_notify(uint16_t att_handle)
 {
     ble_gattc_log_proc_init("notify; ");
-    BLE_HS_LOG(INFO, "att_handle=%d\n", att_handle);
+    //BLE_HS_LOG(INFO, "att_handle=%d\n", att_handle);
 }
 
 static void
 ble_gattc_log_indicate(uint16_t att_handle)
 {
     ble_gattc_log_proc_init("indicate; ");
-    BLE_HS_LOG(INFO, "att_handle=%d\n", att_handle);
+    //BLE_HS_LOG(INFO, "att_handle=%d\n", att_handle);
 }
 
 /*****************************************************************************
